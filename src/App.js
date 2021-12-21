@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 import Card from './components/Card';
 import allLinks from './links';
@@ -13,6 +13,24 @@ function App() {
     new Array(25).fill(false)
   );
 
+  useEffect(() => {
+    if (localStorage.getItem('beenClicked') != undefined) {
+      let tempArray = '';
+      tempArray = localStorage.getItem('beenClicked').split(',');
+      console.log(tempArray);
+      let fromLocalStorageBeenClicked = [];
+      for (let i = 0; i < tempArray.length; i++) {
+        if (tempArray[i] === 'true') {
+          fromLocalStorageBeenClicked[i] = true;
+        } else {
+          fromLocalStorageBeenClicked[i] = false;
+        }
+      }
+      console.log(fromLocalStorageBeenClicked);
+      setHasBeenClicked([...fromLocalStorageBeenClicked]);
+    }
+  }, []);
+
   const handleClick = (id) => {
     console.log('cliiick');
     console.log(id);
@@ -20,7 +38,14 @@ function App() {
     newHasbeenClicked[id] = true;
     console.log(newHasbeenClicked);
 
-    setHasBeenClicked([...newHasbeenClicked]);
+    setHasBeenClicked(newHasbeenClicked);
+    localStorage.setItem('beenClicked', [...newHasbeenClicked]);
+  };
+
+  const clearClickHistory = () => {
+    console.log('clearing click history');
+    localStorage.removeItem('beenClicked');
+    setHasBeenClicked(new Array(25).fill(false));
   };
 
   return (
@@ -42,6 +67,7 @@ function App() {
         </div>
       </main>
       <footer>
+        <button onClick={clearClickHistory}>Clear Click History</button>
         <div>
           Photo by{' '}
           <a href="https://www.pexels.com/@orlovamaria?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels">

@@ -8,6 +8,7 @@ function Card(props) {
     return (
       <a
         target="_blank"
+        rel="noreferrer"
         className="card not-clicked"
         href={path}
         onClick={() => handleClick(id)}
@@ -19,6 +20,7 @@ function Card(props) {
     return (
       <a
         target="_blank"
+        rel="noreferrer"
         className="card clicked"
         href={path}
         onClick={() => handleClick(id)}
