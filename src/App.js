@@ -4,10 +4,11 @@ import Card from './components/Card';
 import allLinks from './links';
 
 function App() {
-  let itemArray = [
-    0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
-    21, 22, 23, 24,
-  ];
+  // make an array of 0 to 24
+  let itemArray = [];
+  for (let i = 0; i < allLinks.length; i++) {
+    itemArray.push(i);
+  }
 
   const [hasBeenClicked, setHasBeenClicked] = useState(
     new Array(25).fill(false)
@@ -17,7 +18,7 @@ function App() {
     if (localStorage.getItem('beenClicked') != undefined) {
       let tempArray = '';
       tempArray = localStorage.getItem('beenClicked').split(',');
-      console.log(tempArray);
+
       let fromLocalStorageBeenClicked = [];
       for (let i = 0; i < tempArray.length; i++) {
         if (tempArray[i] === 'true') {
@@ -26,32 +27,34 @@ function App() {
           fromLocalStorageBeenClicked[i] = false;
         }
       }
-      console.log(fromLocalStorageBeenClicked);
+
       setHasBeenClicked([...fromLocalStorageBeenClicked]);
     }
   }, []);
 
   const handleClick = (id) => {
-    console.log('cliiick');
-    console.log(id);
     let newHasbeenClicked = [...hasBeenClicked];
     newHasbeenClicked[id] = true;
-    console.log(newHasbeenClicked);
 
     setHasBeenClicked(newHasbeenClicked);
     localStorage.setItem('beenClicked', [...newHasbeenClicked]);
   };
 
   const clearClickHistory = () => {
-    console.log('clearing click history');
     localStorage.removeItem('beenClicked');
     setHasBeenClicked(new Array(25).fill(false));
   };
 
   return (
     <div className="App">
-      <img className="bg" src="./pexels-maria-orlova-4915845.jpg" />
-      <header className="App-header">Fun Websites Advent Calendar</header>
+      <img
+        className="bg"
+        alt="Huge fancy christmas tree with tall building behind it"
+      />
+
+      <header className="App-header">
+        <h1>Fun Websites Advent Calendar</h1>
+      </header>
 
       <main>
         <div id="card-container">

@@ -5,24 +5,7 @@
 body {
   background-color: #282c34;
   min-height: 100vh;
-  /* display: flex; */
-  /* align-items: center; */
   color: white;
-}
-
-/* .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-} */
-
-.App-link {
-  color: #61dafb;
 }
 
 main {
@@ -37,6 +20,10 @@ main {
   height: 100vh;
 }
 
+/* ****************** */
+/* Card Section */
+/* ****************** */
+
 .card {
   height: 100px;
   width: 15vw;
@@ -46,18 +33,6 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-footer a {
-  text-decoration: none;
-  color: white;
-  text-shadow: 0px 0px 3px black, 0 0 7px green;
-
-  background: linear-gradient(
-    10deg,
-    hsla(120, 100%, 25%, 0.4),
-    hsla(240, 100%, 50%, 0.4)
-  );
 }
 
 .clicked {
@@ -91,13 +66,17 @@ footer a {
   flex-wrap: wrap;
 }
 
+/* ****************** */
+/* Background picture and title */
+/* ****************** */
+
 html {
   background-size: cover;
 }
 
 .bg {
   background-image: url('./pexels-maria-orlova-4915845.jpg');
-  /* height: 100%; */
+
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -106,12 +85,60 @@ html {
   width: 100vw;
   z-index: -100;
   position: absolute;
-  /* top: 10px;
-  left: 10px; */
+}
+
+h1 {
+  font-size: 1em;
+  text-shadow: 1px 1px 3px black, 2px 2px 5px green;
+  color: rgba(210, 162, 100, 1);
+}
+
+/* ****************** */
+/* Footer Section */
+/* ****************** */
+
+footer a {
+  text-decoration: none;
+  color: hsla(1, 0%, 100%, 0.5);
+  text-shadow: 0px 0px 3px black, 0 0 7px green;
+
+  background: linear-gradient(
+    10deg,
+    hsla(120, 100%, 25%, 0.4),
+    hsla(240, 100%, 50%, 0.4)
+  );
 }
 
 footer {
   position: absolute;
   bottom: 0;
   width: 100vw;
+  color: hsla(1, 0%, 100%, 0.5);
+}
+
+button {
+  background: linear-gradient(
+    10deg,
+    hsla(120, 100%, 25%, 0.4),
+    hsla(240, 100%, 50%, 0.4)
+  );
+  color: black;
+  text-shadow: 0 0 5px white;
+  height: 30px;
+}
+
+/* ****************** */
+/* Responsive Section */
+/* ****************** */
+
+@media (orientation: landscape) {
+  .bg {
+    filter: blur(2px);
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  h1 {
+    font-size: 2em;
+  }
 }
