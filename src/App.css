@@ -1,3 +1,9 @@
+/* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+} */
+
 .App {
   text-align: center;
 }
@@ -6,6 +12,7 @@ body {
   background-color: #282c34;
   min-height: 100vh;
   color: white;
+  /* font-size: x-large; */
 }
 
 main {
@@ -75,7 +82,7 @@ html {
 }
 
 .bg {
-  background-image: url('./pexels-maria-orlova-4915845.jpg');
+  background-image: url('./assets/pexels-maria-orlova-4915845.jpg');
 
   background-position: center;
   background-repeat: no-repeat;
@@ -85,6 +92,8 @@ html {
   width: 100vw;
   z-index: -100;
   position: absolute;
+
+  top: -3vh;
 }
 
 h1 {
@@ -112,6 +121,7 @@ footer a {
 footer {
   position: absolute;
   bottom: 0;
+
   width: 100vw;
   color: hsla(1, 0%, 100%, 0.5);
 }
@@ -125,6 +135,7 @@ button {
   color: black;
   text-shadow: 0 0 5px white;
   height: 30px;
+  margin-bottom: 3px;
 }
 
 /* ****************** */

@@ -10,13 +10,15 @@ function App() {
     itemArray.push(i);
   }
 
-  const [hasBeenClicked, setHasBeenClicked] = useState(
-    new Array(25).fill(false)
-  );
+  let emptyArray = new Array(25).fill(false);
+  console.log(emptyArray);
+
+  const [hasBeenClicked, setHasBeenClicked] = useState([...emptyArray]);
 
   useEffect(() => {
-    if (localStorage.getItem('beenClicked') != undefined) {
+    if (localStorage.getItem('beenClicked') !== null) {
       let tempArray = '';
+      debugger;
       tempArray = localStorage.getItem('beenClicked').split(',');
 
       let fromLocalStorageBeenClicked = [];
